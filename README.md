@@ -38,6 +38,3 @@ Note: We are not responsible for sweaty palms or sudden anxiety when hearing the
 - Advanced CSS3: Backdrop filters, radial gradients, and complex animations.
 - Dynamic SVG: Progress ring with real-time circumference calculations.
 - Hammer.js: Robust support for gestures and touch interactions.
-
----
-Created with heart (and much fear of water) by Antigravity and Nelson.
