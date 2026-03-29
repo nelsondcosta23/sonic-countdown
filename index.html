@@ -1,48 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" >
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Minimal Countdown Timer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonic Speed HUD | Countdown</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald'>
-
-      <link rel="stylesheet" href="css/style.css">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+    <div class="app-background"></div>
+    <div class="speed-lines"></div>
 
-  <audio  autoplay="true" >
-    <source src="sounds/sound.ogg" type="audio/ogg">
-    <source src="sounds/sound.mp3" type="audio/mpeg">
-      <source src="sounds/sound.wav" type="	audio/wav">
-    Your browser does not support the audio element.
-  </audio>
+    <audio id="bg-music" loop preload="auto">
+        <source src="sounds/sound.ogg" type="audio/ogg">
+        <source src="sounds/sound.mp3" type="audio/mpeg">
+        <source src="sounds/sound.wav" type="audio/wav">
+    </audio>
 
-<div class="container">
-  <div class="countdown countdown--wide" id="countdown">
-    <div class="countdown__fill" id="ticker"></div>
-    <div class="countdown__digit" id="seconds">00</div>
-    <!--.countdown__buttons-->
-    <!--	.countdown__button +-->
-    <!--	.countdown__button --->
-  </div>
-</div><a class="full-button" id="toggle">Toggle size</a>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.4/hammer.min.js'></script>
+    <audio id="goal-sfx">
+        <source src="sounds/sound.mp3" type="audio/mpeg">
+        <source src="sounds/sound.ogg" type="audio/ogg">
+        <source src="sounds/sound.wav" type="audio/wav">
+    </audio>
 
+    <main class="container">
+        <div class="glass-panel" id="timer-card">
+            <div class="hud-header">
+                <span class="hud-label">ZONE SYSTEM READY</span>
+                <span class="hud-status" id="status-text">IDLE</span>
+            </div>
 
+            <div class="countdown-engine" id="countdown">
+                <svg class="progress-ring" viewBox="-30 -30 180 180">
+                    <circle class="progress-ring__background" cx="60" cy="60" r="54" />
+                    <circle class="progress-ring__circle" id="progress-circle" cx="60" cy="60" r="54" />
+                </svg>
+                
+                <div class="time-display">
+                    <span id="seconds">10</span>
+                    <span class="unit">SEC</span>
+                </div>
+            </div>
 
-    <script  src="js/index.js"></script>
+            <div class="hud-footer">
+                <button id="retry-btn" class="toggle-btn retry-btn">TRY AGAIN</button>
+                <button id="toggle" class="toggle-btn">FULL HUD</button>
+                <div class="hint-group">
+                    <span class="hint">UP/DOWN TO CALIBRATE</span>
+                    <span class="hint">TAP TO ENGAGE</span>
+                </div>
+            </div>
+        </div>
+    </main>
 
-
-
-
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.4/hammer.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
-
 </html>
